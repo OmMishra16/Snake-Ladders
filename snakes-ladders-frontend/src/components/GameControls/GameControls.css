@@ -1,0 +1,167 @@
+.game-controls {
+  padding: 25px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.status {
+  text-align: center;
+  margin-bottom: 25px;
+  padding: 20px;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.status::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  pointer-events: none;
+}
+
+.status.waiting {
+  background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+  border: 2px solid #f39c12;
+  box-shadow: 0 4px 15px rgba(243, 156, 18, 0.2);
+}
+
+.status.playing {
+  background: linear-gradient(135deg, #d1ecf1, #74b9ff);
+  border: 2px solid #0984e3;
+  box-shadow: 0 4px 15px rgba(9, 132, 227, 0.2);
+}
+
+.status.finished {
+  background: linear-gradient(135deg, #d4edda, #00b894);
+  border: 2px solid #00a085;
+  box-shadow: 0 4px 15px rgba(0, 184, 148, 0.2);
+}
+
+.status h3 {
+  margin: 0 0 10px 0;
+  color: #333;
+}
+
+.current-player {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.bot-difficulty {
+  color: #666;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.turn-count {
+  color: #666;
+  font-size: 14px;
+}
+
+.winner {
+  font-size: 18px;
+  color: #00b894;
+  margin: 10px 0;
+}
+
+.control-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.btn {
+  padding: 15px 30px;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 160px;
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, #5a67d8, #6b46c1);
+}
+
+.btn-success {
+  background: linear-gradient(135deg, #48bb78, #38a169);
+  color: white;
+}
+
+.btn-success:hover:not(:disabled) {
+  background: linear-gradient(135deg, #38a169, #2f855a);
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, #a0aec0, #718096);
+  color: white;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: linear-gradient(135deg, #718096, #4a5568);
+}
+
+.game-rules {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 6px;
+  border-left: 4px solid #007bff;
+}
+
+.game-rules h4 {
+  margin: 0 0 10px 0;
+  color: #333;
+}
+
+.game-rules p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #666;
+}

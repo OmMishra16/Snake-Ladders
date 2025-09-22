@@ -1,0 +1,129 @@
+.App {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.App-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.App-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="25" cy="25" r="3" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="3" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="25" r="2" fill="rgba(255,255,255,0.05)"/><circle cx="25" cy="75" r="2" fill="rgba(255,255,255,0.05)"/></svg>') repeat;
+  pointer-events: none;
+}
+
+.App-header h1 {
+  margin: 0;
+  color: white;
+  font-size: 3rem;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1;
+  letter-spacing: 1px;
+}
+
+
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 15px;
+  margin: 20px;
+  border-radius: 8px;
+  border: 1px solid #f5c6cb;
+  text-align: center;
+  font-weight: bold;
+}
+
+.game-container {
+  display: flex;
+  gap: 25px;
+  padding: 25px;
+  max-width: 1400px;
+  margin: 0 auto;
+  align-items: flex-start;
+  min-height: calc(100vh - 120px);
+}
+
+.game-left {
+  flex: 0 0 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.game-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+@media (max-width: 1024px) {
+  .game-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .game-left {
+    flex: none;
+    width: 100%;
+    max-width: 600px;
+    flex-direction: row;
+    overflow-x: auto;
+  }
+  
+  .game-center {
+    width: 100%;
+    overflow-x: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .App-header h1 {
+    font-size: 2rem;
+  }
+  
+  .game-container {
+    padding: 10px;
+  }
+  
+  .game-left {
+    flex-direction: column;
+  }
+}
+
+/* Loading spinner */
+.loading {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-right: 10px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive game board */
+@media (max-width: 480px) {
+  .game-center {
+    padding: 10px;
+  }
+}

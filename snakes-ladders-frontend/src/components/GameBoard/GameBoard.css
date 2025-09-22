@@ -1,0 +1,253 @@
+.game-board {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.board-grid {
+  display: grid;
+  gap: 3px;
+  background: linear-gradient(45deg, #8B4513, #A0522D);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  border: 4px solid #654321;
+}
+
+.cell {
+  width: 65px;
+  height: 65px;
+  background: linear-gradient(135deg, #fef7d0, #fff8dc);
+  border: 2px solid #deb887;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.3), 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cell:hover {
+  transform: translateY(-2px);
+  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cell.snake {
+  background: linear-gradient(135deg, #ffcdd2, #ffebee);
+  border-color: #e57373;
+  box-shadow: inset 0 2px 4px rgba(255, 182, 193, 0.4), 0 2px 4px rgba(244, 67, 54, 0.2);
+}
+
+.cell.ladder {
+  background: linear-gradient(135deg, #c8e6c9, #e8f5e8);
+  border-color: #81c784;
+  box-shadow: inset 0 2px 4px rgba(200, 230, 201, 0.4), 0 2px 4px rgba(76, 175, 80, 0.2);
+}
+
+.cell.has-players {
+  background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+  border-color: #ffb74d;
+}
+
+.cell-number {
+  font-size: 11px;
+  font-weight: bold;
+  color: #8B4513;
+  position: absolute;
+  top: 4px;
+  left: 6px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Entity (Snake/Ladder) Styling */
+.entity-visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.snake, .ladder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.snake-body, .ladder-body {
+  font-size: 20px;
+  margin-bottom: 2px;
+  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.3));
+}
+
+.entity-destination {
+  font-size: 8px;
+  color: #333;
+  font-weight: bold;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1px 3px;
+  border-radius: 3px;
+  border: 1px solid #ddd;
+}
+
+/* Player Pieces */
+.player-pieces {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.player-piece {
+  position: absolute;
+  width: 28px;
+  height: 32px;
+  border-radius: 12px 12px 6px 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 8px;
+  font-weight: bold;
+  border: 2px solid white;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.player-piece:hover {
+  transform: scale(1.1);
+}
+
+.player-avatar {
+  font-size: 12px;
+  margin-bottom: 1px;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.5));
+}
+
+.player-name {
+  font-size: 8px;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.player-piece.human {
+  border-color: #1976d2;
+  box-shadow: 0 3px 8px rgba(25, 118, 210, 0.4);
+}
+
+.player-piece.bot {
+  border-color: #f57c00;
+  box-shadow: 0 3px 8px rgba(245, 124, 0, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .board-grid {
+    padding: 15px;
+    gap: 2px;
+  }
+  
+  .cell {
+    width: 55px;
+    height: 55px;
+  }
+  
+  .player-piece {
+    width: 24px;
+    height: 28px;
+  }
+  
+  .snake-body, .ladder-body {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .game-board {
+    padding: 10px;
+  }
+  
+  .board-grid {
+    padding: 10px;
+    gap: 1px;
+  }
+  
+  .cell {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .cell-number {
+    font-size: 9px;
+    width: 15px;
+    height: 15px;
+    top: 2px;
+    left: 3px;
+  }
+  
+  .player-piece {
+    width: 20px;
+    height: 24px;
+  }
+  
+  .player-avatar {
+    font-size: 10px;
+  }
+  
+  .player-name {
+    font-size: 7px;
+  }
+  
+  .snake-body, .ladder-body {
+    font-size: 14px;
+  }
+  
+  .entity-destination {
+    font-size: 7px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cell {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .cell-number {
+    font-size: 8px;
+    width: 12px;
+    height: 12px;
+  }
+  
+  .player-piece {
+    width: 16px;
+    height: 20px;
+  }
+  
+  .player-avatar {
+    font-size: 8px;
+  }
+  
+  .player-name {
+    font-size: 6px;
+  }
+  
+  .snake-body, .ladder-body {
+    font-size: 12px;
+  }
+}
